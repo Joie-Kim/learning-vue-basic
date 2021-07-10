@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      // $('#app')와 같은 의미
+      var div = document.querySelector("#app");
+      var str = "hello world";
+      div.innerHTML = str;
+
+      // 문자열의 내용이 변경된다면, 다시 innerHTML을 사용해서 변경된 값을 HTML로 보내 변경해야 함.
+      // 기존 웹 개발 방식
+      str = "hello world !!";
+      div.innerHTML = str;
+    </script>
+  </body>
+</html>
