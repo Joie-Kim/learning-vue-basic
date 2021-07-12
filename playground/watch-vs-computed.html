@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">{{ num }}</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          num: 10,
+        },
+        // 값에 대한 계산
+        // 간단한 연산
+        computed: {
+          doubleNum: function () {
+            return this.num * 2;
+          },
+        },
+        // 매번 실행 되는 게 부담스러울 때
+        // 데이터 요청할 때 유용하다.
+        // 값을 추적하는 속성이기 때문에 새로운 데이터와 기존 데이터를 모두 알 수 있음
+        watch: {
+          num: function (newValue, oldValue) {
+            this.fetchUserByNumber(newValue);
+          },
+        },
+        methods: {
+          fetchUserByNumber: function (num) {
+            // console.log(num);
+            axios.get(num);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
